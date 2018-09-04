@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <link href="../../bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <div class="container">
+    <h3>Gugudan</h3>
+    <form class="">
+      <label for="">From</label>
+      <input type="number" min="1" max="20" id="f">
+      &nbsp;~&nbsp;
+      <!-- 엔비에스피는 스페이스바 대체문자 -->
+      <label for="">To</label>
+      <input type="number" min="1" max="20" id="t">
+      &nbsp;
+      <button type="button" name="button" onclick="gugo()">Show</button>
+    </form>
+
+
+
+    <table class="table table-striped">
+      <thead>
+        <tr id="targeth">
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="target">
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
+
+    </table>
+
+  </div>
+
+  <script type="text/javascript">
+
+
+function gugo() {
+  var tds;
+  var trs;
+  var ths;
+
+var ff =  document.getElementById("f");
+var tt =  document.getElementById("t");
+a=parseInt(ff.value,10);
+b=parseInt(tt.value,10);
+
+
+  ths=[];
+  for (var i = a; i <= b; i++) {
+  ths.push("<th>"+i+"</th>");
+  }
+var thead =  document.getElementById("targeth");
+thead.innerHTML = ths.join("");
+
+
+
+trs=[];
+  for (var i = 1; i <= 9; i++) {
+    tds = [];
+    for (var j = a; j <= b; j++) {
+      tds.push("<td>"+j + "*" +i + "=" + (i * j)+"</td>");
+    }
+    trs.push("<tr>"+tds.join("")+"</tr>");
+  }
+
+  console.log(trs);
+var tbody =  document.getElementById("target");
+tbody.innerHTML = trs.join("");
+}
+  </script>
+
+
+</body>
+
+</html>
